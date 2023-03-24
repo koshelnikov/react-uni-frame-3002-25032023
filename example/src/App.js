@@ -41,7 +41,14 @@ function App() {
                     onAddTask={(columnId) => {
                         setColumnId(columnId);
                         setTaskCardWindowOpen(true)
-                    }}/>
+                    }}
+                    onTaskRemove={(id) => {
+                        const taskIndex = tasks.findIndex((task) => task.id ===id);
+                        tasks.splice(taskIndex, 1);
+                        setTasks([...tasks]);
+                    }}
+
+            />
 
             {taskCardWindowOpen &&
 

@@ -7,7 +7,7 @@ export const Column = (props) => {
 
              onDragOver={(e) => e.preventDefault()}
              onDrop={(e) => {
-                 props.onMoveTask(+e.dataTransfer.getData('text/plain'))
+                 props.onMoveCard(+e.dataTransfer.getData('text/plain'))
              }
         }>
             <div><span>{props.name}</span></div>
@@ -16,11 +16,12 @@ export const Column = (props) => {
                     return <Card key={task.id}
                                  id={task.id}
                                  name={task.name}
-                                 onEdit={() => props.onEditTask(task.id)}
+                                 onEdit={() => props.onEditCard(task.id)}
+                                 onRemove={() => props.onCardRemove(task.id)}
                     />
                 })}
             <div>
-                <button onClick={() => props.onAddTask()}>Add Task</button>
+                <button onClick={() => props.onAddCard()}>Add Task</button>
             </div>
         </div>
     )

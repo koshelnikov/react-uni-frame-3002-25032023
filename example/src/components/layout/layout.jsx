@@ -9,9 +9,11 @@ export const Layout = (props) => {
                     <Column key={column.id}
                             name={column.name}
                             tasks={props.tasks.filter((task) => task.columnId === column.id)}
-                            onMoveTask={(id) => props.onMoveTask(id, column.id)}
-                            onEditTask={(id) => props.onEditTask(id)}
-                            onAddTask={() => props.onAddTask(column.id)} />
+                            onMoveCard={(id) => props.onMoveTask(id, column.id)}
+                            onEditCard={(id) => props.onEditTask(id)}
+                            onAddCard={() => props.onAddTask(column.id)}
+                            onCardRemove={(id) => props.onTaskRemove(id)}
+                    />
                 )
             }
         </div>

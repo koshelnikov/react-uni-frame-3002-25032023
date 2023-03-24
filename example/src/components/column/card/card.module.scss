@@ -1,6 +1,20 @@
 .card {
+  position: relative;
   background: #FFFFFF;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
   border-radius: 2px;
-  padding: 12px
+  padding: 12px;
+
+  >.buttonRemove {
+    display: none;
+    position: absolute;
+    right: 6px;
+    top: 6px;
+  }
+
+  &:hover {
+    >.buttonRemove {
+      display: flex;
+    }
+  }
 }
