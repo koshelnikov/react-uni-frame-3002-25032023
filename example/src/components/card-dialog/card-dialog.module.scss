@@ -1,0 +1,33 @@
+.cardDialog {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  inset: 0;
+  z-index: 1300;
+
+  .cardBackdrop {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    inset: 0;
+    z-index: -1;
+  }
+
+  .cardDialogContainer {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    .cardDialogBody {
+      max-height: calc(100% - 64px);
+      max-width: 600px;
+      padding: 24px;
+      background-color: white;
+      border-radius: 4px;
+      box-shadow:
+              rgba(0, 0, 0, 0.2) 0 11px 15px -7px,
+              rgba(0, 0, 0, 0.14) 0 24px 38px 3px,
+              rgba(0, 0, 0, 0.12) 0 9px 46px 8px;
+      margin: 32px;
+    }
+  }
+}

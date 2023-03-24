@@ -5,7 +5,7 @@ import {CardDialog} from "./components/card-dialog/card-dialog";
 
 function App() {
     const [openedTaskId, setOpenedTaskId] = useState();
-    const [columns, setColumns] = useState([
+    const [columns] = useState([
         {id: 'TODO', name: 'TODO'},
         {id: 'IN_PROGRESS', name: 'In Progress'}
     ])
@@ -26,9 +26,14 @@ function App() {
     }
 
     return (
-        <div className="App">
+        <div className="app">
             <Layout columns={columns}
                     tasks={tasks}
+                    onMoveTask={(id, columnId) => {
+                        const task = tasks.find((task) => task.id === id);
+                        task.columnId = columnId;
+                        setTasks([...tasks])
+                    }}
                     onEditTask={(id) => {
                         setOpenedTaskId(id);
                         setTaskCardWindowOpen(true);
@@ -46,7 +51,6 @@ function App() {
                 onSave={(id, name) => {
                     if (id) {
                         const task = tasks.find((task) => task.id === id);
-                        console.log(task);
                         task.name = name;
                     } else {
                         tasks.push({id: getNextTaskId(), name, columnId: columnId});
